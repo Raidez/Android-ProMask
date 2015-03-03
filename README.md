@@ -14,7 +14,6 @@ le *masque* cachera en *direct* une partie de l'image diffusée.
 
 ## Technologies :
 ### Pré-requis :
-Pour le développement uniquement :
 	- SDK
 
 ### Langage de programmations :
