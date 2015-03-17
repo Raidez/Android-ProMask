@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,34 +7,45 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#0099cc" >
-
-    <SeekBar
-        android:id="@+id/writeA"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="70dp" />
     
-    <SeekBar
-        android:id="@+id/writeB"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/writeA"
-        android:layout_alignBottom="@id/writeA" />
-
-    <SeekBar
-        android:id="@+id/writeC"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+    <ImageButton
+        android:id="@+id/A"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle"
+        android:contentDescription="@+string/test"
+        android:scaleType="fitCenter"
+        android:src="@drawable/circle" />
+    
+    <ImageButton
+        android:id="@+id/B"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/circle"
+        android:contentDescription="@+string/test"
+        android:scaleType="fitCenter"
+        android:src="@drawable/circle" />
+    
+    <ImageButton
+        android:id="@+id/C"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp" />
-
-    <SeekBar
-        android:id="@+id/writeD"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/writeC"
-        android:layout_alignBottom="@id/writeC" />
+        android:background="@drawable/circle"
+        android:contentDescription="@+string/test"
+        android:scaleType="fitCenter"
+        android:src="@drawable/circle" />
+    
+    <ImageButton
+        android:id="@+id/D"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/circle"
+        android:contentDescription="@+string/test"
+        android:scaleType="fitCenter"
+        android:src="@drawable/circle" />
     
 </RelativeLayout>
