@@ -31,10 +31,10 @@ public class FullscreenActivity extends Activity implements OnTouchListener {
 		
 		//#part : récupération/configuration des bouttons
 		writes = new ImageButton[4];
-		writes[0] = (ImageButton)this.findViewById(R.id.A);
-		writes[1] = (ImageButton)this.findViewById(R.id.B);
-		writes[2] = (ImageButton)this.findViewById(R.id.C);
-		writes[3] = (ImageButton)this.findViewById(R.id.D);
+		writes[0] = (ImageButton)this.findViewById(R.id.TLCorner);
+		writes[1] = (ImageButton)this.findViewById(R.id.TRCorner);
+		writes[2] = (ImageButton)this.findViewById(R.id.BLCorner);
+		writes[3] = (ImageButton)this.findViewById(R.id.BRCorner);
 		
 		for(int i = 0; i < writes.length; i++)
 			writes[i].setOnTouchListener(this);
@@ -95,9 +95,10 @@ public class FullscreenActivity extends Activity implements OnTouchListener {
 		Vector send = new Vector(2);
 		send.add(X);
 		send.add(Y);
+
 		OSCMessage msg = new OSCMessage("/mallarme/masque/"+obj.getResources().getResourceEntryName(obj.getId()), send);
-		OSCSend("172.16.100.176", 12345, msg);
-		
+		OSCSend("172.16.100.176", 12345, msg); //#detail : mon addr
+		//OSCSend("172.16.100.145", 9876, msg); //#detail : addr de M.David
 		return false;
 	}
 }

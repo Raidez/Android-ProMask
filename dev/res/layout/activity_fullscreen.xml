@@ -9,7 +9,7 @@
     android:background="#0099cc" >
     
     <ImageButton
-        android:id="@+id/A"
+        android:id="@+id/TLCorner"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/circle"
@@ -18,7 +18,7 @@
         android:src="@drawable/circle" />
     
     <ImageButton
-        android:id="@+id/B"
+        android:id="@+id/TRCorner"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentRight="true"
@@ -28,7 +28,7 @@
         android:src="@drawable/circle" />
     
     <ImageButton
-        android:id="@+id/C"
+        android:id="@+id/BLCorner"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
@@ -38,7 +38,7 @@
         android:src="@drawable/circle" />
     
     <ImageButton
-        android:id="@+id/D"
+        android:id="@+id/BRCorner"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
@@ -47,5 +47,4 @@
         android:contentDescription="@+string/test"
         android:scaleType="fitCenter"
         android:src="@drawable/circle" />
-    
 </RelativeLayout>
