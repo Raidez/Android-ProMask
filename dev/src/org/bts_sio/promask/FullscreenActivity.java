@@ -18,6 +18,8 @@ import android.widget.*;
 public class FullscreenActivity extends Activity implements OnTouchListener {
 	private View screen;
 	private ImageButton[] writes;
+	private String addr;
+	private int port;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class FullscreenActivity extends Activity implements OnTouchListener {
 		
 		//#part : configuration de l'écran
 		screen = this.findViewById(R.id.fullscreen_content);
+		addr = this.getIntent().getExtras().getString("addr");
+		port = Integer.parseInt(this.getIntent().getExtras().getString("port"));
 		
 		//#part : récupération/configuration des bouttons
 		writes = new ImageButton[4];
@@ -70,15 +74,6 @@ public class FullscreenActivity extends Activity implements OnTouchListener {
 
 	@Override
 	public boolean onTouch(View obj, MotionEvent event) {
-		/*
-		v.offsetLeftAndRight(limitScreen(v.getWidth(), event.getX()));
-		v.offsetTopAndBottom(limitScreen(v.getHeight(), event.getY()));
-		Log.d("taille du layout", screen.getHeight()+" x "+screen.getWidth());
-		
-		
-		return false;*/
-		//Log.d("screenY", ""+screen.getHeight());
-		Log.d("action", ""+event.getAction());
 		if(event.getAction() ==  MotionEvent.ACTION_UP)
 		{
 			if((obj.getTop()+obj.getHeight()) >= screen.getHeight())
@@ -97,8 +92,7 @@ public class FullscreenActivity extends Activity implements OnTouchListener {
 		send.add(Y);
 
 		OSCMessage msg = new OSCMessage("/mallarme/masque/"+obj.getResources().getResourceEntryName(obj.getId()), send);
-		OSCSend("172.16.100.176", 12345, msg); //#detail : mon addr
-		//OSCSend("172.16.100.145", 9876, msg); //#detail : addr de M.David
+		OSCSend(addr, port, msg);
 		return false;
 	}
 }

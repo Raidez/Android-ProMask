@@ -1,6 +1,7 @@
 package org.bts_sio.promask;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 import android.view.View.OnClickListener;
@@ -9,6 +10,8 @@ import android.widget.*;
 public class ConfigurationActivity extends Activity implements OnClickListener {
 	private View screen;
 	private Button next;
+	private EditText addr;
+	private EditText port;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,10 @@ public class ConfigurationActivity extends Activity implements OnClickListener {
 		//#part : récupération des éléments
 		screen = this.findViewById(R.id.fullscreen_content);
 		next = (Button)this.findViewById(R.id.confirm);
+		addr = (EditText)this.findViewById(R.id.addr);
+		port =(EditText)this.findViewById(R.id.port);
+		
+		//#part : événement
 		next.setOnClickListener(this);
 	}
 
@@ -27,7 +34,20 @@ public class ConfigurationActivity extends Activity implements OnClickListener {
 	public void onClick(View obj) {
 		if(obj.getId() == R.id.confirm)
 		{
-			Toast.makeText(this, "Vérifiez vos paramètres", Toast.LENGTH_LONG).show();
+			if(addr.length() > 0 && port.length() > 0)
+			{
+				if(addr.getText().toString().matches("^([0-9]{1,3}\\.){3}[0-9]{1,3}$") && port.getText().toString().matches("^[0-9]+$"))
+				{
+					Intent intent = new Intent(this, FullscreenActivity.class);
+					intent.putExtra("addr", addr.getText().toString());
+					intent.putExtra("port", port.getText().toString());
+					startActivity(intent);
+				}
+				else
+					Toast.makeText(this, "L'adresse ou le port est invalide !", Toast.LENGTH_LONG).show();
+			}
+			else
+				Toast.makeText(this, "Vous devez remplir les champs !", Toast.LENGTH_LONG).show();
 		}
 	}
 }
