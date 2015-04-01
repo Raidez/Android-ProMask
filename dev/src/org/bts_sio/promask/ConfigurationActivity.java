@@ -10,8 +10,9 @@ import android.os.Bundle;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.*;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 
-public class ConfigurationActivity extends Activity implements OnClickListener {
+public class ConfigurationActivity extends Activity implements OnClickListener, OnSeekBarChangeListener {
 	private Button next;
 	private EditText addr;
 	private EditText port;
@@ -36,6 +37,8 @@ public class ConfigurationActivity extends Activity implements OnClickListener {
 		
 		//#part : événement
 		next.setOnClickListener(this);
+		for(int i = 0; i < rgb.length; i++)
+			rgb[i].setOnSeekBarChangeListener(this);
 	}
 
 	@Override
@@ -46,17 +49,6 @@ public class ConfigurationActivity extends Activity implements OnClickListener {
 			{
 				if(addr.getText().toString().matches("^([0-9]{1,3}\\.){3}[0-9]{1,3}$") && port.getText().toString().matches("^[0-9]+$"))
 				{
-					Vector send = new Vector(rgb.length);
-					for(int i = 0; i < rgb.length; i++)
-					{
-						float color = (float)rgb[i].getProgress() / (float)rgb[i].getMax();
-						//Toast.makeText(this, rgb[i].getProgress() +"/"+ rgb[i].getMax()  +"="+color, Toast.LENGTH_LONG).show();
-						send.add(color);
-					}
-
-					OSCMessage msg = new OSCMessage("/mallarme/masque/color", send);
-					GestionOSC.OSCSend(addr.getText().toString(), Integer.parseInt(port.getText().toString()), msg);
-					
 					Intent intent = new Intent(this, FullscreenActivity.class);
 					intent.putExtra("addr", addr.getText().toString());
 					intent.putExtra("port", port.getText().toString());
@@ -68,5 +60,30 @@ public class ConfigurationActivity extends Activity implements OnClickListener {
 			else
 				Toast.makeText(this, "Vous devez remplir les champs !", Toast.LENGTH_LONG).show();
 		}
+	}
+
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+		Vector send = new Vector(rgb.length);
+		for(int i = 0; i < rgb.length; i++)
+		{
+			float color = (float)rgb[i].getProgress() / (float)rgb[i].getMax();
+			send.add(color);
+		}
+
+		OSCMessage msg = new OSCMessage("/mallarme/masque/color", send);
+		GestionOSC.OSCSend(addr.getText().toString(), Integer.parseInt(port.getText().toString()), msg);
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
+		// TODO Auto-generated method stub
+		
 	}
 }
