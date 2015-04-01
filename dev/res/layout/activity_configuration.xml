@@ -50,12 +50,29 @@
         android:layout_alignBaseline="@id/port_lab"
         android:ems="10"
         android:inputType="number" />
-
+    
+    <TextView
+        android:id="@+id/red_lab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/port_lab"
+        android:text="Quantité de rouge : " />
+    
+    <SeekBar
+        android:id="@+id/color_red"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/red_lab"
+        android:progress="0"
+        android:max="255" />
+    
     <Button
         android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/port_lab"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/color_red"
+        android:layout_marginTop="43dp"
         android:text="Confirmer" />
     
 </RelativeLayout>

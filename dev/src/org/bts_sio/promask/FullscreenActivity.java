@@ -2,15 +2,10 @@ package org.bts_sio.promask;
 
 import com.illposed.osc.*;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 import java.util.Vector;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.*;
 import android.view.View.OnTouchListener;
 import android.widget.*;
@@ -44,29 +39,6 @@ public class FullscreenActivity extends Activity implements OnTouchListener {
 			writes[i].setOnTouchListener(this);
 	}
 	
-	public void OSCSend(final String addr, final int port, final OSCMessage msg) {
-		Thread temp = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					OSCPortOut sender = new OSCPortOut(InetAddress.getByName(addr), port);
-					sender.send(msg);
-				} catch (SocketException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (UnknownHostException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
-		
-		temp.start();
-	}
-	
 	public int limitScreen(int size, float position) {
 		int new_position = (int)position - size / 2;
 		return new_position;
@@ -92,7 +64,7 @@ public class FullscreenActivity extends Activity implements OnTouchListener {
 		send.add(Y);
 
 		OSCMessage msg = new OSCMessage("/mallarme/masque/"+obj.getResources().getResourceEntryName(obj.getId()), send);
-		OSCSend(addr, port, msg);
+		GestionOSC.OSCSend(addr, port, msg);
 		return false;
 	}
 }

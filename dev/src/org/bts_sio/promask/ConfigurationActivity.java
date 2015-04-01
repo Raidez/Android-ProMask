@@ -1,5 +1,9 @@
 package org.bts_sio.promask;
 
+import com.illposed.osc.OSCMessage;
+
+import java.util.Vector;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,23 +12,27 @@ import android.view.View.OnClickListener;
 import android.widget.*;
 
 public class ConfigurationActivity extends Activity implements OnClickListener {
-	private View screen;
 	private Button next;
 	private EditText addr;
 	private EditText port;
+	private SeekBar[] rgb = new SeekBar[3];
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState); //#detail : création/reprise de l'activité
 		//#part : configuration de l'écran
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE); //#detail : configure l'écran sans l'actionBar
-		this.setContentView(R.layout.activity_configuration); //#detail : application du xml à l'écran
+		this.setContentView(R.layout.activity_configuration2); //#detail : application du xml à l'écran
 		
 		//#part : récupération des éléments
-		screen = this.findViewById(R.id.fullscreen_content);
 		next = (Button)this.findViewById(R.id.confirm);
 		addr = (EditText)this.findViewById(R.id.addr);
-		port =(EditText)this.findViewById(R.id.port);
+		addr.setText("172.16.69.255");
+		port = (EditText)this.findViewById(R.id.port);
+		port.setText("9876");
+		rgb[0] = (SeekBar)this.findViewById(R.id.color_red);
+		rgb[1] = (SeekBar)this.findViewById(R.id.color_green);
+		rgb[2] = (SeekBar)this.findViewById(R.id.color_blue);
 		
 		//#part : événement
 		next.setOnClickListener(this);
@@ -38,6 +46,17 @@ public class ConfigurationActivity extends Activity implements OnClickListener {
 			{
 				if(addr.getText().toString().matches("^([0-9]{1,3}\\.){3}[0-9]{1,3}$") && port.getText().toString().matches("^[0-9]+$"))
 				{
+					Vector send = new Vector(rgb.length);
+					for(int i = 0; i < rgb.length; i++)
+					{
+						float color = (float)rgb[i].getProgress() / (float)rgb[i].getMax();
+						//Toast.makeText(this, rgb[i].getProgress() +"/"+ rgb[i].getMax()  +"="+color, Toast.LENGTH_LONG).show();
+						send.add(color);
+					}
+
+					OSCMessage msg = new OSCMessage("/mallarme/masque/color", send);
+					GestionOSC.OSCSend(addr.getText().toString(), Integer.parseInt(port.getText().toString()), msg);
+					
 					Intent intent = new Intent(this, FullscreenActivity.class);
 					intent.putExtra("addr", addr.getText().toString());
 					intent.putExtra("port", port.getText().toString());

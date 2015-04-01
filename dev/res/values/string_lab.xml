@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="addr">L\'adresse IP du serveur : </string>
+    <string name="port">Le port de l\'application : </string>
+    <string name="rouge">Quantité de rouge : </string>
+    <string name="vert">Quantité de vert : </string>
+    <string name="bleu">Quantité de blue : </string>
+</resources>
