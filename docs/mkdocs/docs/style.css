@@ -1,0 +1,19 @@
+body {
+	height: 100%;
+	width: 100%;
+
+	padding: 0;
+	margin: 0;
+
+	font-size: 100%;
+	background-color: #FFFFFF;
+}
+
+nav, div.rst-versions  {
+	display: none;
+}
+
+section {
+	margin-left: auto;
+	margin-right: auto;
+}
