@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.bts_sio.promask.FullscreenActivity"
+    android:id="@+id/fullscreen_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#0099cc" >
+    
+    <ImageButton
+        android:id="@+id/TLCorner"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle"
+        android:contentDescription="@+string/test"
+        android:scaleType="fitCenter"
+        android:src="@drawable/circle" />
+    
+    <ImageButton
+        android:id="@+id/TRCorner"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/circle"
+        android:contentDescription="@+string/test"
+        android:scaleType="fitCenter"
+        android:src="@drawable/circle" />
+    
+    <ImageButton
+        android:id="@+id/BLCorner"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/circle"
+        android:contentDescription="@+string/test"
+        android:scaleType="fitCenter"
+        android:src="@drawable/circle" />
+    
+    <ImageButton
+        android:id="@+id/BRCorner"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/circle"
+        android:contentDescription="@+string/test"
+        android:scaleType="fitCenter"
+        android:src="@drawable/circle" />
+</RelativeLayout>

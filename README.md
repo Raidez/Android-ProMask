@@ -14,8 +14,10 @@ le *masque* cachera en *direct* une partie de l'image diffusée.
 
 ## Technologies :
 ### Pré-requis :
-Pour le développement uniquement :
 	- SDK
+
+### Version Android visée :
+	- 2.0 (minimum)
 
 ### Langage de programmations :
 	- Java

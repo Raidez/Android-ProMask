@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.bts_sio.promask.ConfigurationActivity"
+    android:id="@+id/config"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:id="@+id/headers"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+            android:textSize="20sp"
+	        android:text="@string/intro" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/configuration"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal" >
+        <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:text="@string/addr" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:text="@string/port" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/addr"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:inputType="text" >
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/port"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:inputType="number" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/color"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textSize="20sp"
+                android:text="@string/rouge" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+        		android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="@string/vert" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+        		android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="@string/bleu" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+            <SeekBar
+		        android:id="@+id/color_red"
+		        android:layout_width="fill_parent"
+		        android:layout_height="30dp"
+		        android:progress="0"
+		        android:max="255" />
+            
+            <SeekBar
+		        android:id="@+id/color_green"
+		        android:layout_width="fill_parent"
+		        android:layout_height="30dp"
+        		android:layout_marginTop="15dp"
+		        android:progress="0"
+		        android:max="255" />
+            
+            <SeekBar
+		        android:id="@+id/color_blue"
+		        android:layout_width="fill_parent"
+		        android:layout_height="30dp"
+        		android:layout_marginTop="15dp"
+		        android:progress="0"
+		        android:max="255" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/confirming"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal" >
+        <Button
+	        android:id="@+id/confirm"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/confirm" />
+    </LinearLayout>
+    
+</LinearLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.bts_sio.promask.ConfigurationActivity"
+    android:id="@+id/config"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#0099cc" >
+
+    <TextView
+        android:id="@+id/intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Bienvenue dans ProMask, veuillez configurer l'adresse IP et le port du serveur :"
+        tools:ignore="RtlHardcoded" />
+    
+    <TextView
+        android:id="@+id/addr_lab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/intro"
+        android:text="Adresse IP : " />
+
+    <EditText
+        android:id="@+id/addr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/addr_lab"
+        android:layout_alignBaseline="@id/addr_lab"
+        android:ems="10"
+        android:inputType="text" >
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/port_lab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addr_lab"
+        android:text="Port : " />
+    
+    <EditText
+        android:id="@+id/port"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/addr"
+        android:layout_alignBaseline="@id/port_lab"
+        android:ems="10"
+        android:inputType="number" />
+    
+    <TextView
+        android:id="@+id/red_lab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/port_lab"
+        android:text="Quantité de rouge : " />
+    
+    <SeekBar
+        android:id="@+id/color_red"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/red_lab"
+        android:progress="0"
+        android:max="255" />
+    
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/color_red"
+        android:layout_marginTop="43dp"
+        android:text="Confirmer" />
+    
+</RelativeLayout>

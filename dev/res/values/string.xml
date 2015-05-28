@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android ProMask</string>
+    <string name="intro">Bienvenue dans ProMask, veuillez configurer l\'adresse IP et le port du serveur :</string>
+    <string name="confirm">Confirmer</string>
+</resources>
