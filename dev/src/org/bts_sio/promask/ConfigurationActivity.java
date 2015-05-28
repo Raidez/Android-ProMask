@@ -36,7 +36,7 @@ public class ConfigurationActivity extends Activity implements OnClickListener, 
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE); //configure l'écran sans l'actionBar
 		this.setContentView(R.layout.activity_configuration2); //application du xml(=layout) à l'écran
 		
-		/**
+		/*
 		 * pourquoi y'a t-il 2 layout "activity_configuration" ?
 		 * car le premier est un relative layout, finalement trop complex, il fut abandonné pour un linear layout,
 		 * plus facile à configurer et mettre en place, cependant cet ancien vestige est toujours disponible
@@ -107,7 +107,7 @@ public class ConfigurationActivity extends Activity implements OnClickListener, 
 		GestionOSC.OSCSend(addr.getText().toString(), Integer.parseInt(port.getText().toString()), msg); //envoie du paquet
 	}
 
-	/**
+	/*
 	 * pourquoi n'utiliser que l'événement "onProgressChanged" ?
 	 * cela permet d'envoyer la couleur du masque à chaque changement et donc de voir en direct la couleur visible
 	 * tandis qu'avec les événements ci-dessous, la couleur du masque n'était visible qu'au début (=onStartTrackingTouch) ou à la fin (=onStopTrackingTouch)
