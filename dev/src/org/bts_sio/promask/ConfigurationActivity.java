@@ -4,6 +4,8 @@ import com.illposed.osc.OSCMessage;
 
 import java.util.Vector;
 
+import test.testCardinalite;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,6 +33,8 @@ public class ConfigurationActivity extends Activity implements OnClickListener, 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState); // création/reprise de l'activité
+		
+		testCardinalite.main(this); //test de l'objet Cardinalite
 		
 		//#part: configuration de l'écran
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE); //configure l'écran sans l'actionBar

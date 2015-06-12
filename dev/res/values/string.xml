@@ -3,4 +3,7 @@
     <string name="app_name">Android ProMask</string>
     <string name="intro">Bienvenue dans ProMask, veuillez configurer l\'adresse IP et le port du serveur :</string>
     <string name="confirm">Confirmer</string>
+    
+    <!-- contient les noms des objets pour les test de Cardinalite -->
+    <item name="annabelle" type="id"/>
 </resources>
